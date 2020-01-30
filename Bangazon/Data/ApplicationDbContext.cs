@@ -201,15 +201,30 @@ namespace Bangazon.Data {
                     OrderProductId = 1,
                     OrderId = 1,
                     ProductId = 1
-                }
-            );
-
-            modelBuilder.Entity<OrderProduct> ().HasData (
+                },
                 new OrderProduct()
                 {
                     OrderProductId = 2,
                     OrderId = 1,
                     ProductId = 2
+                },
+                new OrderProduct()
+                {
+                    OrderProductId = 3,
+                    OrderId = 1,
+                    ProductId = 2
+                },
+                new OrderProduct()
+                {
+                    OrderProductId = 4,
+                    OrderId = 1,
+                    ProductId = 2
+                },
+                new OrderProduct()
+                {
+                    OrderProductId = 5,
+                    OrderId = 1,
+                    ProductId = 3
                 }
             );
         }
