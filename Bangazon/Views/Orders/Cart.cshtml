@@ -1,0 +1,73 @@
+﻿@model Bangazon.Models.OrderViewModels.ShoppingCartViewModel;
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+
+<h1 class="ui center aligned header">
+    <i class="icon shopping cart"></i>
+</h1>
+<h3 class="ui center aligned header">
+    Total Cost
+</h3>
+<h5 class="ui center aligned header">
+    $@Model.TotalCost
+</h5>
+
+<div class="ui grid">
+    <div class="ten wide column">
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Units</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderDetails.LineItems)
+                {
+                    <tr>
+                        <td data-label="Product">@item.Product.Title</td>
+                        <td data-label="Units">@item.Units</td>
+                        <td data-label="Cost">@item.Cost</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="six wide column">
+        <div class="ui card">
+            <div class="content">
+                <div class="header">Ship To</div>
+            </div>
+            <div class="content">
+                <h4 class="ui sub header">@Model.User.FirstName @Model.User.LastName</h4>
+                <div class="ui small feed">
+                    <div class="event">
+                        <div class="content">
+                            <div class="summary">
+                                <p>@Model.User.StreetAddress</p>
+                            </div>
+                            <h5>Payment Info</h5>
+                            <form class="ui form" asp-action="Cart">
+                                <div class="field">
+                                    <select class="ui fluid dropdown" asp-for="SelectedPaymentId" asp-items="Model.PaymentOptions">
+                                    </select>
+                                </div>
+                                <button type="submit" class="ui button">
+                                    Purchase
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

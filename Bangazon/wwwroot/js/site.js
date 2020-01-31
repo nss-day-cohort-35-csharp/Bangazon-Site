@@ -6,3 +6,8 @@ $('.menu-toggle').click(() => {
     $('.ui.sidebar')
         .sidebar('toggle');
 });
+
+
+$('.dimmer').click(() => {
+    
+});
